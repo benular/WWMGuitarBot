@@ -22,24 +22,33 @@ sudo apt install -y \
 
 ### Fedora/RHEL/CentOS/Bazzite
 ```bash
+# Core dependencies (required):
 sudo dnf install -y \
     pkg-config \
-    libxdo-devel \
-    libxcb-devel \
-    xcb-util-devel \
-    xcb-util-image-devel \
     libX11-devel \
     libXrandr-devel \
     libXext-devel \
     libXfixes-devel \
+    libxcb-devel
+
+# Optional (for advanced features):
+sudo dnf install -y \
+    libxdo-devel \
+    xcb-util-devel \
+    xcb-util-image-devel \
     wayland-devel \
     libxkbcommon-devel \
     mesa-libGL-devel
 ```
 
-**Note for Bazzite:** Use `rpm-ostree install` instead of `dnf` if on immutable system:
+**For Bazzite (immutable system):**
 ```bash
-rpm-ostree install pkg-config libxdo-devel libxcb-devel xcb-util-devel xcb-util-image-devel libX11-devel libXrandr-devel libXext-devel libXfixes-devel wayland-devel libxkbcommon-devel mesa-libGL-devel
+# Essential libraries only:
+rpm-ostree install pkg-config libX11-devel libXrandr-devel libXext-devel libXfixes-devel libxcb-devel
+sudo systemctl reboot  # Required after rpm-ostree
+
+# After reboot, build should work:
+cargo build --release
 ```
 
 ### Arch Linux

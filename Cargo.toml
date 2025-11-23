@@ -5,12 +5,15 @@ edition = "2024"
 
 [dependencies]
 image = "0.25"
-scrap = { version = "0.5" }
-enigo = "0.2"
+# Minimal dependencies approach
+captrs = "0.3"  # Pure rust screenshot
+device_query = "2.1"  # Cross-platform input
 
-# Alternative crates für bessere cross-platform support:
-# screenshots = "0.10"  # Alternative zu scrap mit weniger dependencies
-# inputbot = "0.5"      # Alternative zu enigo
+# Failed alternatives (too many native deps):
+# screenshots = "0.8"  # needs libudev
+# inputbot = "0.5"     # needs libudev
+# scrap = { version = "0.5" }    # needs xcb/xdo
+# enigo = "0.2"        # needs xcb/xdo
 
 [build-dependencies]
 pkg-config = "0.3"

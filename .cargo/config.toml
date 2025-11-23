@@ -1,0 +1,15 @@
+[build]
+# Set rustflags for better linking on problematic systems
+rustflags = [
+    "-C", "link-args=-Wl,--no-as-needed",
+]
+
+[target.'cfg(target_os = "linux")']
+# Linux-specific linking flags
+rustflags = [
+    "-C", "link-args=-lX11 -lXrandr -lXext -lXfixes -lxcb -lxcb-shm",
+]
+
+# Alternative: Use static linking where possible
+# [target.'cfg(target_os = "linux")']
+# rustflags = ["-C", "target-feature=+crt-static"]
