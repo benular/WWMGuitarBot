@@ -17,7 +17,11 @@ pkgs.mkShell {
     xorg.libXrandr
     xorg.libXext
     xorg.libXfixes
+    xorg.libxcbutil
+    xorg.libxcbimage
+    xorg.libxcbshm
     xdotool
+    libxdo
   ];
   
   shellHook = ''

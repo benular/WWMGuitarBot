@@ -20,18 +20,26 @@ sudo apt install -y \
     libxdamage-dev
 ```
 
-### Fedora/RHEL/CentOS
+### Fedora/RHEL/CentOS/Bazzite
 ```bash
 sudo dnf install -y \
     pkg-config \
-    wayland-devel \
-    libxkbcommon-devel \
-    mesa-libGL-devel \
+    libxdo-devel \
+    libxcb-devel \
+    xcb-util-devel \
+    xcb-util-image-devel \
     libX11-devel \
     libXrandr-devel \
     libXext-devel \
     libXfixes-devel \
-    libxcb-devel
+    wayland-devel \
+    libxkbcommon-devel \
+    mesa-libGL-devel
+```
+
+**Note for Bazzite:** Use `rpm-ostree install` instead of `dnf` if on immutable system:
+```bash
+rpm-ostree install pkg-config libxdo-devel libxcb-devel xcb-util-devel xcb-util-image-devel libX11-devel libXrandr-devel libXext-devel libXfixes-devel wayland-devel libxkbcommon-devel mesa-libGL-devel
 ```
 
 ### Arch Linux
