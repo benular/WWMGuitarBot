@@ -5,7 +5,7 @@ edition = "2024"
 
 [dependencies]
 image = "0.25"
-scrap = { version = "0.5", features = ["wayland", "x11"] }
+scrap = { version = "0.5" }
 enigo = "0.2"
 
 # Alternative crates für bessere cross-platform support:
